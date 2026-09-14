@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+:root {
+  --color-paper: #faf6f0;
+  --color-ivory: #f1e9dc;
+  --color-linen: #e8ddc9;
+  --color-stone: #8c8275;
+  --color-charcoal: #2a2621;
+  --color-ink: #1c1916;
+  --color-wood: #a9613f;
+  --color-wood-dark: #8a4c30;
+  --color-moss: #6b7259;
+  --color-success: #4c6b4f;
+  --color-alert: #a13d3d;
+}
+
+@theme inline {
+  --color-paper: var(--color-paper);
+  --color-ivory: var(--color-ivory);
+  --color-linen: var(--color-linen);
+  --color-stone: var(--color-stone);
+  --color-charcoal: var(--color-charcoal);
+  --color-ink: var(--color-ink);
+  --color-wood: var(--color-wood);
+  --color-wood-dark: var(--color-wood-dark);
+  --color-moss: var(--color-moss);
+  --color-success: var(--color-success);
+  --color-alert: var(--color-alert);
+
+  /* Production: swap for next/font/google (Fraunces + Inter) once the
+     deploy environment has network access — see README "Design system". */
+  --font-display: "Iowan Old Style", "Palatino Linotype", Georgia, "Noto Serif", serif;
+  --font-body: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif;
+
+  --container-content: 1280px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--color-paper);
+  color: var(--color-charcoal);
+  font-family: var(--font-body);
+}
+
+::selection { background: var(--color-wood); color: var(--color-paper); }
+
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible,
+textarea:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--color-wood);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
