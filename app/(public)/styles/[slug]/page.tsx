@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { styles } from "@/lib/data/styles";
-import { getActiveProducts } from "@/lib/data/products";
+import { getCmsProducts } from "@/lib/cms/products";
 import ProductGrid from "@/components/ui/ProductGrid";
 import SectionHeading from "@/components/ui/SectionHeading";
+
+export const dynamic = "force-dynamic";
 
 export function generateStaticParams() {
   return styles.map((s) => ({ slug: s.slug }));
@@ -22,7 +24,7 @@ export default async function StylePage({ params }: { params: Promise<{ slug: st
   const style = styles.find((s) => s.slug === slug);
   if (!style) notFound();
 
-  const products = getActiveProducts().filter((p) => p.styleIds.includes(style.id));
+  const products = (await getCmsProducts()).filter((p) => p.styleIds.includes(style.id));
 
   return (
     <div>

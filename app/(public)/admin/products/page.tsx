@@ -12,24 +12,26 @@ import { Product } from "@/lib/types";
 export default function AdminProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);
 
-  function refresh() {
-    setProducts(getAdminProducts());
+  async function refresh() {
+    try {
+      setProducts(await getAdminProducts());
+    } catch {
+      setProducts([]);
+    }
   }
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time client-side read of demo admin store on mount
-    refresh();
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time client-side read of CMS data on mount
+    void refresh();
   }, []);
 
   function handleDelete(id: string, name: string) {
     if (!window.confirm(`Xóa sản phẩm "${name}"? Hành động này không thể hoàn tác trong bản demo.`)) return;
-    deleteAdminProduct(id);
-    refresh();
+    void deleteAdminProduct(id).then(refresh);
   }
 
   function toggle(id: string, flag: "isFeatured" | "isHero" | "isActive", current: boolean) {
-    setAdminProductFlag(id, flag, !current);
-    refresh();
+    void setAdminProductFlag(id, flag, !current).then(refresh);
   }
 
   return (

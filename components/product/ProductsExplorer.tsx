@@ -3,13 +3,13 @@
 import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { SlidersHorizontal, X } from "lucide-react";
-import { getActiveProducts } from "@/lib/data/products";
 import { categories } from "@/lib/data/categories";
 import { rooms } from "@/lib/data/rooms";
 import { styles } from "@/lib/data/styles";
 import { budgetTiers } from "@/lib/data/styles";
 import ProductGrid from "@/components/ui/ProductGrid";
 import { trackSearch } from "@/lib/analytics";
+import { Product } from "@/lib/types";
 
 const sortOptions = [
   { key: "nha-co-gu-chon", label: "Nhà Có Gu chọn" },
@@ -20,9 +20,7 @@ const sortOptions = [
   { key: "pho-bien", label: "Phổ biến" },
 ];
 
-const allProducts = getActiveProducts();
-
-export default function ProductsExplorer() {
+export default function ProductsExplorer({ products }: { products: Product[] }) {
   const searchParams = useSearchParams();
   const [query, setQuery] = useState("");
   const [categoryId, setCategoryId] = useState<string>("");
@@ -35,7 +33,7 @@ export default function ProductsExplorer() {
   const [showFilters, setShowFilters] = useState(false);
 
   const filtered = useMemo(() => {
-    let list = allProducts.slice();
+    let list = products.slice();
 
     if (query.trim()) {
       const q = query.trim().toLowerCase();
@@ -77,7 +75,7 @@ export default function ProductsExplorer() {
     }
 
     return list;
-  }, [query, categoryId, roomId, styleId, budgetId, platform, minScore, sort]);
+  }, [products, query, categoryId, roomId, styleId, budgetId, platform, minScore, sort]);
 
   function handleSearchBlur() {
     if (query.trim()) trackSearch(query.trim(), filtered.length);

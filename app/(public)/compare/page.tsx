@@ -2,16 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { X } from "lucide-react";
 import { useCompare, MAX_COMPARE } from "@/lib/hooks/useCompare";
-import { getActiveProducts } from "@/lib/data/products";
+import { Product } from "@/lib/types";
 import { formatVND, platformLabels } from "@/lib/format";
 import AffiliateButton from "@/components/product/AffiliateButton";
 
-const allProducts = getActiveProducts();
-
 export default function ComparePage() {
   const { ids, toggle, clear } = useCompare();
+  const [allProducts, setAllProducts] = useState<Product[]>([]);
+  useEffect(() => { fetch("/api/products").then((response) => response.json()).then(setAllProducts).catch(() => setAllProducts([])); }, []);
   const products = ids.map((id) => allProducts.find((p) => p.id === id)).filter((p): p is NonNullable<typeof p> => Boolean(p));
 
   if (products.length === 0) {

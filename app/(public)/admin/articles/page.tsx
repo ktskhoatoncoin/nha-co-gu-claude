@@ -1,11 +1,27 @@
-import { articles } from "@/lib/data/articles";
+"use client";
+
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { Article } from "@/lib/types";
+import { ArticleStatus } from "@/lib/cms/articles";
+import { deleteAdminArticle, getAdminArticles } from "@/lib/admin/articles";
 import { timeAgoOrDate } from "@/lib/format";
 
 export default function AdminArticlesPage() {
+  const [articles, setArticles] = useState<(Article & { status: ArticleStatus })[]>([]);
+  useEffect(() => { getAdminArticles().then(setArticles).catch(() => setArticles([])); }, []);
+
+  async function remove(article: Article) {
+    if (!window.confirm(`Xóa bài viết "${article.title}"?`)) return;
+    await deleteAdminArticle(article.id);
+    setArticles((current) => current.filter((item) => item.id !== article.id));
+  }
+
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
         <h2 className="font-display text-xl text-ink">Bài viết ({articles.length})</h2>
+        <Link href="/admin/articles/new" className="rounded-full bg-ink text-paper px-4 py-2 text-sm">+ Bài viết mới</Link>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full min-w-[640px] text-sm">
@@ -15,6 +31,7 @@ export default function AdminArticlesPage() {
               <th className="py-2 pr-3 font-medium">Chuyên mục</th>
               <th className="py-2 pr-3 font-medium">Ngày đăng</th>
               <th className="py-2 pr-3 font-medium">Affiliate</th>
+              <th className="py-2 pr-3 font-medium">Thao tác</th>
             </tr>
           </thead>
           <tbody>
@@ -32,15 +49,12 @@ export default function AdminArticlesPage() {
                     {a.hasAffiliateLinks ? "Có" : "Không"}
                   </span>
                 </td>
+                <td className="py-3 pr-3"><Link href={`/admin/articles/${a.id}`} className="text-wood mr-3">Sửa</Link><button type="button" onClick={() => void remove(a)} className="text-alert">Xóa</button></td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <p className="mt-6 text-xs text-stone max-w-xl">
-        Quản lý bài viết trong bản demo V1 hiện chỉ ở chế độ xem. CRUD bài viết dùng cùng khuôn mẫu với sản phẩm
-        (lib/admin/store.ts) và sẽ được nối vào bảng <code>articles</code> khi tích hợp Supabase.
-      </p>
     </div>
   );
 }

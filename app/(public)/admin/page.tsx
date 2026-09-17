@@ -4,18 +4,19 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { getAdminProducts } from "@/lib/admin/store";
 import { categories } from "@/lib/data/categories";
-import { articles } from "@/lib/data/articles";
+import { getAdminArticles } from "@/lib/admin/articles";
 import { getStoredEvents } from "@/lib/analytics";
 import { Product } from "@/lib/types";
 
 export default function AdminOverviewPage() {
   const [products, setProducts] = useState<Product[]>([]);
+  const [articleCount, setArticleCount] = useState(0);
   const [clickCount, setClickCount] = useState(0);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time client-side read of demo admin store on mount
-    setProducts(getAdminProducts());
-    setClickCount(getStoredEvents().filter((e) => e.type === "affiliate_click").length);
+    getAdminProducts().then(setProducts).catch(() => setProducts([]));
+    getAdminArticles().then((items) => setArticleCount(items.length)).catch(() => setArticleCount(0));
+    Promise.resolve(getStoredEvents().filter((e) => e.type === "affiliate_click").length).then(setClickCount);
   }, []);
 
   const stats = [
@@ -23,7 +24,7 @@ export default function AdminOverviewPage() {
     { label: "Sản phẩm đang hoạt động", value: products.filter((p) => p.isActive).length },
     { label: "Sản phẩm nổi bật", value: products.filter((p) => p.isFeatured).length },
     { label: "Nhóm sản phẩm", value: categories.length },
-    { label: "Bài viết", value: articles.length },
+    { label: "Bài viết", value: articleCount },
     { label: "Lượt click affiliate (demo)", value: clickCount },
   ];
 

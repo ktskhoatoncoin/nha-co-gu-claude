@@ -5,6 +5,7 @@ import { getStoredEvents, clearStoredEvents } from "@/lib/analytics";
 import { getAdminProducts } from "@/lib/admin/store";
 import { categories } from "@/lib/data/categories";
 import { platformLabels } from "@/lib/format";
+import { Product } from "@/lib/types";
 
 interface ClickEvent {
   type: string;
@@ -21,8 +22,12 @@ export default function AdminAnalyticsPage() {
     setEvents(getStoredEvents() as unknown as ClickEvent[]);
   }, []);
 
-  const products = getAdminProducts();
+  const [products, setProducts] = useState<Product[]>([]);
   const clicks = events.filter((e) => e.type === "affiliate_click");
+
+  useEffect(() => {
+    getAdminProducts().then(setProducts).catch(() => setProducts([]));
+  }, []);
 
   const topProducts = useMemo(() => {
     const counts = new Map<string, number>();

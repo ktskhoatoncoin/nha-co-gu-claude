@@ -7,11 +7,13 @@ import ProductGrid from "@/components/ui/ProductGrid";
 import ArticleCard from "@/components/ui/ArticleCard";
 import { rooms } from "@/lib/data/rooms";
 import { styles } from "@/lib/data/styles";
-import { articles } from "@/lib/data/articles";
-import { getActiveProducts } from "@/lib/data/products";
+import { getCmsArticles } from "@/lib/cms/articles";
+import { getCmsProducts } from "@/lib/cms/products";
 
-export default function HomePage() {
-  const products = getActiveProducts();
+export const dynamic = "force-dynamic";
+
+export default async function HomePage() {
+  const [products, articles] = await Promise.all([getCmsProducts(), getCmsArticles()]);
   const featured = products.filter((p) => p.isFeatured).slice(0, 8);
   const under500k = products.filter((p) => p.price <= 500000).slice(0, 8);
   const latestArticles = [...articles].sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, 3);

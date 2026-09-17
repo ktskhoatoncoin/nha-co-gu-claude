@@ -7,6 +7,7 @@ import { categories } from "@/lib/data/categories";
 import { rooms } from "@/lib/data/rooms";
 import { styles } from "@/lib/data/styles";
 import { createAdminProduct, updateAdminProduct, ProductFormValues } from "@/lib/admin/store";
+import { OTHER_CATEGORY_ID, OTHER_CATEGORY_NAME } from "@/lib/cms/constants";
 
 const platforms: { value: Platform; label: string }[] = [
   { value: "shopee", label: "Shopee" },
@@ -37,6 +38,8 @@ function toFormValues(p?: Product): ProductFormValues {
     styleIds: p?.styleIds ?? [],
     price: p?.price ?? 0,
     originalPrice: p?.originalPrice ?? null,
+    imageUrl: p?.imageUrl ?? "",
+    gallery: p?.gallery ?? [],
     platform: p?.platform ?? "shopee",
     merchantName: p?.merchantName ?? "",
     affiliateUrl: p?.affiliateUrl ?? "https://example.com/affiliate/demo",
@@ -56,6 +59,7 @@ export default function AdminProductForm({ product }: { product?: Product }) {
   const router = useRouter();
   const [values, setValues] = useState<ProductFormValues>(() => toFormValues(product));
   const [saving, setSaving] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   function update<K extends keyof ProductFormValues>(key: K, value: ProductFormValues[K]) {
     setValues((v) => ({ ...v, [key]: value }));
@@ -68,15 +72,21 @@ export default function AdminProductForm({ product }: { product?: Product }) {
     }));
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setSaving(true);
-    if (product) {
-      updateAdminProduct(product.id, values);
-    } else {
-      createAdminProduct(values);
+    setError(null);
+    try {
+      if (product) {
+        await updateAdminProduct(product.id, values);
+      } else {
+        await createAdminProduct(values);
+      }
+      router.push("/admin/products");
+    } catch (saveError) {
+      setError(saveError instanceof Error ? saveError.message : "Không thể lưu sản phẩm.");
+      setSaving(false);
     }
-    router.push("/admin/products");
   }
 
   return (
@@ -111,12 +121,31 @@ export default function AdminProductForm({ product }: { product?: Product }) {
                   {c.name}
                 </option>
               ))}
+              <option value={OTHER_CATEGORY_ID}>{OTHER_CATEGORY_NAME}</option>
             </select>
           </Field>
           <Field label="Loại sản phẩm (subcategory)">
             <input value={values.subcategory} onChange={(e) => update("subcategory", e.target.value)} className="input" />
           </Field>
         </div>
+        <Field label="Ảnh sản phẩm (URL)">
+          <input
+            type="url"
+            required
+            value={values.imageUrl}
+            onChange={(e) => update("imageUrl", e.target.value)}
+            placeholder="https://..."
+            className="input"
+          />
+        </Field>
+        <Field label="Ảnh bổ sung (mỗi URL một dòng, tuỳ chọn)">
+          <textarea
+            rows={3}
+            value={values.gallery.join("\n")}
+            onChange={(e) => update("gallery", e.target.value.split("\n").map((url) => url.trim()).filter(Boolean))}
+            className="input"
+          />
+        </Field>
       </fieldset>
 
       <fieldset className="space-y-3">
@@ -277,6 +306,7 @@ export default function AdminProductForm({ product }: { product?: Product }) {
           Hủy
         </button>
       </div>
+      {error && <p className="text-sm text-alert">{error}</p>}
 
       <style jsx global>{`
         .input {

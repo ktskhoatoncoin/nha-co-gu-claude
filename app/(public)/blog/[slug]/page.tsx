@@ -2,21 +2,23 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { articles } from "@/lib/data/articles";
-import { getActiveProducts } from "@/lib/data/products";
+import { getCmsArticles, getCmsArticle } from "@/lib/cms/articles";
+import { getCmsProducts } from "@/lib/cms/products";
 import { timeAgoOrDate } from "@/lib/format";
 import ArticleBody from "@/components/ui/ArticleBody";
 import ArticleViewTracker from "@/components/ui/ArticleViewTracker";
 import ProductGrid from "@/components/ui/ProductGrid";
 import ArticleCard from "@/components/ui/ArticleCard";
 
-export function generateStaticParams() {
-  return articles.map((a) => ({ slug: a.slug }));
+export const dynamic = "force-dynamic";
+
+export async function generateStaticParams() {
+  return (await getCmsArticles()).map((a) => ({ slug: a.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const article = articles.find((a) => a.slug === slug);
+  const article = await getCmsArticle(slug);
   if (!article) return { title: "Không tìm thấy bài viết" };
   return {
     title: article.title,
@@ -27,11 +29,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function ArticleDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const article = articles.find((a) => a.slug === slug);
+  const article = await getCmsArticle(slug);
   if (!article) notFound();
 
-  const relatedProducts = getActiveProducts().filter((p) => article.relatedProductSlugs.includes(p.slug));
-  const moreArticles = articles.filter((a) => a.id !== article.id && a.category === article.category).slice(0, 3);
+  const relatedProducts = (await getCmsProducts()).filter((p) => article.relatedProductSlugs.includes(p.slug));
+  const moreArticles = (await getCmsArticles()).filter((a) => a.id !== article.id && a.category === article.category).slice(0, 3);
 
   return (
     <article className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-10">

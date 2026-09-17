@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { articles } from "@/lib/data/articles";
+import { getCmsArticles } from "@/lib/cms/articles";
 import ArticleCard from "@/components/ui/ArticleCard";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Góc kiến trúc sư",
@@ -17,7 +19,8 @@ const categoryOrder = [
   "Xu hướng",
 ];
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const articles = await getCmsArticles();
   const sorted = [...articles].sort((a, b) => (a.date < b.date ? 1 : -1));
 
   return (

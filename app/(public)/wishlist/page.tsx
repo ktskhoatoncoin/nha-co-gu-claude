@@ -1,14 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { useWishlist } from "@/lib/hooks/useWishlist";
-import { getActiveProducts } from "@/lib/data/products";
+import { Product } from "@/lib/types";
 import ProductGrid from "@/components/ui/ProductGrid";
-
-const allProducts = getActiveProducts();
 
 export default function WishlistPage() {
   const { ids } = useWishlist();
+  const [allProducts, setAllProducts] = useState<Product[]>([]);
+  useEffect(() => { fetch("/api/products").then((response) => response.json()).then(setAllProducts).catch(() => setAllProducts([])); }, []);
   const products = allProducts.filter((p) => ids.includes(p.id));
 
   return (

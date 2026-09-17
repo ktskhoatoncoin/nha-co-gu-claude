@@ -11,8 +11,7 @@ export default function EditProductPage() {
   const [product, setProduct] = useState<Product | null | undefined>(undefined);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time client-side read of demo admin store on mount
-    setProduct(getAdminProduct(params.id));
+    getAdminProduct(params.id).then(setProduct).catch(() => setProduct(null));
   }, [params.id]);
 
   if (product === undefined) return null;

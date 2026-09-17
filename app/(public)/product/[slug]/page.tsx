@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CheckCircle2, XCircle } from "lucide-react";
-import { getActiveProducts, getProductBySlug } from "@/lib/data/products";
+import { getCmsProductBySlug, getCmsProducts } from "@/lib/cms/products";
 import { categories } from "@/lib/data/categories";
 import { rooms } from "@/lib/data/rooms";
 import { styles } from "@/lib/data/styles";
@@ -16,13 +16,15 @@ import SaveButton from "@/components/product/SaveButton";
 import ViewTracker from "@/components/product/ViewTracker";
 import ProductGrid from "@/components/ui/ProductGrid";
 
-export function generateStaticParams() {
-  return getActiveProducts().map((p) => ({ slug: p.slug }));
+export const dynamic = "force-dynamic";
+
+export async function generateStaticParams() {
+  return (await getCmsProducts()).map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const product = await getCmsProductBySlug(slug);
   if (!product) return { title: "Không tìm thấy sản phẩm" };
   const category = categories.find((c) => c.id === product.categoryId);
   return {
@@ -34,13 +36,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const product = await getCmsProductBySlug(slug);
   if (!product) notFound();
 
   const category = categories.find((c) => c.id === product.categoryId);
   const roomNames = rooms.filter((r) => product.roomIds.includes(r.id)).map((r) => r.name);
   const styleNames = styles.filter((s) => product.styleIds.includes(s.id)).map((s) => s.name);
-  const related = getActiveProducts()
+  const related = (await getCmsProducts())
     .filter((p) => p.categoryId === product.categoryId && p.id !== product.id)
     .slice(0, 4);
 

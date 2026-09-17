@@ -2,19 +2,22 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { categories } from "@/lib/data/categories";
-import { getActiveProducts } from "@/lib/data/products";
-import { articles } from "@/lib/data/articles";
+import { getCmsProducts } from "@/lib/cms/products";
+import { getCmsArticles } from "@/lib/cms/articles";
+import { OTHER_CATEGORY_ID, OTHER_CATEGORY_NAME } from "@/lib/cms/constants";
 import ProductGrid from "@/components/ui/ProductGrid";
 import ArticleCard from "@/components/ui/ArticleCard";
 import SectionHeading from "@/components/ui/SectionHeading";
 
+export const dynamic = "force-dynamic";
+
 export function generateStaticParams() {
-  return categories.map((c) => ({ slug: c.slug }));
+  return [...categories.map((c) => ({ slug: c.slug })), { slug: "san-pham-khac" }];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const category = categories.find((c) => c.slug === slug);
+  const category = categories.find((c) => c.slug === slug) ?? (slug === "san-pham-khac" ? { id: OTHER_CATEGORY_ID, slug, name: OTHER_CATEGORY_NAME, description: "Những sản phẩm hữu ích khác được Nhà Có Gu tuyển chọn.", heroImage: "https://picsum.photos/seed/nha-co-gu-other/1200/800" } : undefined);
   if (!category) return { title: "Không tìm thấy danh mục" };
   return {
     title: `${category.name} đẹp, đáng mua – Nhà Có Gu`,
@@ -24,13 +27,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const category = categories.find((c) => c.slug === slug);
+  const category = categories.find((c) => c.slug === slug) ?? (slug === "san-pham-khac" ? { id: OTHER_CATEGORY_ID, slug, name: OTHER_CATEGORY_NAME, description: "Những sản phẩm hữu ích khác được Nhà Có Gu tuyển chọn.", heroImage: "https://picsum.photos/seed/nha-co-gu-other/1200/800" } : undefined);
   if (!category) notFound();
 
-  const products = getActiveProducts().filter((p) => p.categoryId === category.id);
+  const products = (await getCmsProducts()).filter((p) => p.categoryId === category.id);
   const featured = products.filter((p) => p.isFeatured).slice(0, 4);
   const rest = products.filter((p) => !p.isFeatured);
-  const relatedArticles = articles
+  const relatedArticles = (await getCmsArticles())
     .filter((a) => a.relatedProductSlugs.some((s) => products.some((p) => p.slug === s)))
     .slice(0, 3);
 

@@ -4,11 +4,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { rooms } from "@/lib/data/rooms";
 import { styles } from "@/lib/data/styles";
-import { getActiveProducts } from "@/lib/data/products";
-import { articles } from "@/lib/data/articles";
+import { getCmsProducts } from "@/lib/cms/products";
+import { getCmsArticles } from "@/lib/cms/articles";
 import ProductGrid from "@/components/ui/ProductGrid";
 import ArticleCard from "@/components/ui/ArticleCard";
 import SectionHeading from "@/components/ui/SectionHeading";
+
+export const dynamic = "force-dynamic";
 
 export function generateStaticParams() {
   return rooms.map((r) => ({ slug: r.slug }));
@@ -26,8 +28,8 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
   const room = rooms.find((r) => r.slug === slug);
   if (!room) notFound();
 
-  const products = getActiveProducts().filter((p) => p.roomIds.includes(room.id));
-  const relatedArticles = articles
+  const products = (await getCmsProducts()).filter((p) => p.roomIds.includes(room.id));
+  const relatedArticles = (await getCmsArticles())
     .filter((a) => a.relatedProductSlugs.some((s) => products.some((p) => p.slug === s)))
     .slice(0, 3);
   const relevantStyles = styles.filter((s) => products.some((p) => p.styleIds.includes(s.id)));

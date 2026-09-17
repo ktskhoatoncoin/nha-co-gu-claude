@@ -2,69 +2,32 @@
 
 import { useEffect, useState } from "react";
 import { Lock } from "lucide-react";
-
-// V1 DEMO GATE ONLY.
-// This checks a password client-side and is trivially bypassed by anyone
-// reading the bundle — it exists only so the admin routes aren't wide open
-// in this demo. Before going to production, replace this entirely with
-// Supabase Auth (email/password or magic link) checked in middleware.ts,
-// so /admin/** never renders without a verified session. See README.md.
-const DEMO_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_DEMO_PASSWORD || "nhacogu-admin";
-const SESSION_KEY = "ncg_admin_authed";
+import { createSupabaseBrowserClient } from "@/lib/supabase/browser";
+import { hasSupabaseConfig } from "@/lib/supabase/config";
 
 export default function AdminGate({ children }: { children: React.ReactNode }) {
-  const [authed, setAuthed] = useState<boolean | null>(null);
-  const [input, setInput] = useState("");
-  const [error, setError] = useState(false);
+  const [user, setUser] = useState<{ email?: string } | null>(null);
+  const [ready, setReady] = useState(() => !hasSupabaseConfig());
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time read of sessionStorage on mount, required to avoid SSR/CSR mismatch
-    setAuthed(window.sessionStorage.getItem(SESSION_KEY) === "1");
+    if (!hasSupabaseConfig()) {
+      return;
+    }
+    const supabase = createSupabaseBrowserClient();
+    supabase.auth.getUser().then(({ data }) => { setUser(data.user); setReady(true); });
+    const { data: subscription } = supabase.auth.onAuthStateChange((_event, session) => setUser(session?.user ?? null));
+    return () => subscription.subscription.unsubscribe();
   }, []);
 
-  if (authed === null) return null;
-
-  if (!authed) {
-    return (
-      <div className="mx-auto max-w-sm px-4 py-24">
-        <div className="flex items-center gap-2 mb-4 text-wood">
-          <Lock className="size-5" />
-          <span className="text-sm">Khu vực quản trị</span>
-        </div>
-        <h1 className="font-display text-2xl text-ink mb-6">Đăng nhập Admin</h1>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (input === DEMO_PASSWORD) {
-              window.sessionStorage.setItem(SESSION_KEY, "1");
-              setAuthed(true);
-              setError(false);
-            } else {
-              setError(true);
-            }
-          }}
-          className="space-y-3"
-        >
-          <input
-            type="password"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Mật khẩu quản trị"
-            className="w-full rounded-md border border-linen px-4 py-2.5 text-sm"
-            autoFocus
-          />
-          {error && <p className="text-sm text-alert">Sai mật khẩu, vui lòng thử lại.</p>}
-          <button type="submit" className="w-full rounded-full bg-ink text-paper py-2.5 text-sm">
-            Đăng nhập
-          </button>
-          <p className="text-xs text-stone pt-2">
-            Demo V1: mật khẩu mặc định là <code className="bg-ivory px-1 py-0.5 rounded">nhacogu-admin</code> trừ khi
-            đã đổi qua biến môi trường NEXT_PUBLIC_ADMIN_DEMO_PASSWORD.
-          </p>
-        </form>
-      </div>
-    );
+  if (!ready) return null;
+  if (!hasSupabaseConfig()) {
+    return <div className="mx-auto max-w-lg px-4 py-24"><h1 className="font-display text-2xl text-ink mb-4">Admin chưa được cấu hình</h1><p className="text-sm text-stone">Hãy thêm NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY và SUPABASE_SERVICE_ROLE_KEY vào môi trường, sau đó chạy schema trong supabase/schema.sql.</p></div>;
   }
-
+  if (!user) {
+    return <div className="mx-auto max-w-sm px-4 py-24"><div className="flex items-center gap-2 mb-4 text-wood"><Lock className="size-5" /><span className="text-sm">Khu vực quản trị</span></div><h1 className="font-display text-2xl text-ink mb-6">Đăng nhập Admin</h1><form onSubmit={async (event) => { event.preventDefault(); setError(null); const { error: signInError } = await createSupabaseBrowserClient().auth.signInWithPassword({ email, password }); if (signInError) setError("Email hoặc mật khẩu không đúng."); }} className="space-y-3"><input required type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email quản trị" className="w-full rounded-md border border-linen px-4 py-2.5 text-sm" /><input required type="password" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Mật khẩu" className="w-full rounded-md border border-linen px-4 py-2.5 text-sm" />{error && <p className="text-sm text-alert">{error}</p>}<button type="submit" className="w-full rounded-full bg-ink text-paper py-2.5 text-sm">Đăng nhập</button></form></div>;
+  }
   return <>{children}</>;
 }
