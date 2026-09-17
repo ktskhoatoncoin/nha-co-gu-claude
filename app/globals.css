@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+:root {
+  --color-paper: #faf6f0;
+  --color-ivory: #f1e9dc;
+  --color-linen: #e8ddc9;
+  --color-stone: #7d7365;
+  --color-charcoal: #2a2621;
+  --color-ink: #1c1916;
+  /* V2.1: accent deepened from #a9613f to a muted clay so it reads as an
+     editorial accent rather than an orange highlight. Shared by V1 + V2. */
+  --color-wood: #9a4f35;
+  --color-wood-dark: #7e3f29;
+  --color-moss: #5f6a4e;
+  --color-success: #4c6b4f;
+  --color-alert: #a13d3d;
+
+  /* V2.1 typography weight scale. Bump weight, never size — every value is
+     referenced through the utility classes below so V3/V4 can retune the
+     whole product from this one block. */
+  --fw-body: 400;
+  --fw-body-strong: 450;
+  --fw-label: 500;
+  --fw-nav: 500;
+  --fw-button: 550;
+  --fw-price: 550;
+  --fw-h3: 550;
+  --fw-h2: 600;
+  --fw-h1: 600;
+}
+
+@theme inline {
+  --color-paper: var(--color-paper);
+  --color-ivory: var(--color-ivory);
+  --color-linen: var(--color-linen);
+  --color-stone: var(--color-stone);
+  --color-charcoal: var(--color-charcoal);
+  --color-ink: var(--color-ink);
+  --color-wood: var(--color-wood);
+  --color-wood-dark: var(--color-wood-dark);
+  --color-moss: var(--color-moss);
+  --color-success: var(--color-success);
+  --color-alert: var(--color-alert);
+
+  /* Production: swap for next/font/google (Fraunces + Inter) once the
+     deploy environment has network access — see README "Design system". */
+  --font-display: "Iowan Old Style", "Palatino Linotype", Georgia, "Noto Serif", serif;
+  --font-body: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif;
+
+  --container-content: 1280px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--color-paper);
+  color: var(--color-charcoal);
+  font-family: var(--font-body);
+  font-weight: var(--fw-body);
+}
+
+/* ---------------------------------------------------------------
+   V2.1 TYPOGRAPHY SYSTEM
+   Shared classes used by both the public website (V1) and the
+   Product Curator (V2) so the two read as one brand. Weight only —
+   none of these change font-size.
+   --------------------------------------------------------------- */
+
+@layer base {
+  /* Wrapped in @layer base so per-element Tailwind utilities such as
+     `text-wood` win over these defaults. */
+  /* Display headings. Serif, noticeably firmer than before. */
+  .ncg-h1 { font-family: var(--font-display); font-weight: var(--fw-h1); color: var(--color-ink); }
+  .ncg-h2 { font-family: var(--font-display); font-weight: var(--fw-h2); color: var(--color-ink); }
+  .ncg-h3 { font-family: var(--font-display); font-weight: var(--fw-h3); color: var(--color-ink); }
+
+  /* Small uppercase eyebrow label above a heading. */
+  .ncg-eyebrow {
+    font-weight: var(--fw-h2);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-stone);
+  }
+
+  /* Section label with room for a small leading icon. The icon is sized
+     to the cap height of the text so it never outweighs the words. */
+  .ncg-section-label {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-weight: var(--fw-h2);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-wood);
+  }
+  .ncg-section-label svg {
+    /* Scales with the label, but never below 12px — at eyebrow sizes (11px)
+       a pure em-based icon collapses into an illegible smudge. */
+    width: max(12px, 0.95em);
+    height: max(12px, 0.95em);
+    flex-shrink: 0;
+    stroke-width: 1.75;
+    opacity: 0.85;
+  }
+
+  /* Interactive and data text. */
+  .ncg-nav { font-weight: var(--fw-nav); }
+  .ncg-button { font-weight: var(--fw-button); }
+  .ncg-label { font-weight: var(--fw-label); }
+  .ncg-price { font-weight: var(--fw-price); }
+  .ncg-body-strong { font-weight: var(--fw-body-strong); }
+
+  /* Tabular figures keep score and price columns from shifting. */
+  .ncg-figure { font-variant-numeric: tabular-nums; }
+}
+
+::selection { background: var(--color-wood); color: var(--color-paper); }
+
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible,
+textarea:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--color-wood);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
