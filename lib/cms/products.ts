@@ -176,6 +176,14 @@ export async function getCmsProduct(
     : undefined;
 }
 
+export async function getCmsProductBySlug(
+  slug: string
+): Promise<Product | undefined> {
+  return (await getCmsProducts()).find(
+    (product) => product.slug === slug && product.isActive
+  );
+}
+
 export async function createCmsProduct(
   input: ProductWriteInput
 ): Promise<Product> {
