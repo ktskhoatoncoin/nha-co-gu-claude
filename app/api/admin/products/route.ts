@@ -7,7 +7,7 @@ export async function GET() {
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   try {
-    return NextResponse.json(await getCmsProducts());
+    return NextResponse.json(await getCmsProducts({ includeUnpublished: true }));
   } catch (error) {
     return NextResponse.json({ error: error instanceof Error ? error.message : "Unable to load products" }, { status: 500 });
   }

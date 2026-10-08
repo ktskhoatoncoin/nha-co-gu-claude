@@ -1,0 +1,2503 @@
+{
+  "data": {
+    "tags": [],
+    "styles": [
+      {
+        "id": 1,
+        "name": "Japandi",
+        "slug": "japandi",
+        "image_url": null,
+        "is_active": true,
+        "created_at": "2026-09-18T09:16:25.414062+00:00",
+        "sort_order": 1,
+        "description": null
+      },
+      {
+        "id": 2,
+        "name": "Modern",
+        "slug": "modern",
+        "image_url": null,
+        "is_active": true,
+        "created_at": "2026-09-18T09:20:13.883825+00:00",
+        "sort_order": 2,
+        "description": null
+      },
+      {
+        "id": 3,
+        "name": "Minimal",
+        "slug": "minimal",
+        "image_url": null,
+        "is_active": true,
+        "created_at": "2026-09-18T09:20:38.630767+00:00",
+        "sort_order": 3,
+        "description": null
+      },
+      {
+        "id": 4,
+        "name": "Scandinavian\n",
+        "slug": "scandinavian",
+        "image_url": null,
+        "is_active": true,
+        "created_at": "2026-09-18T09:21:01.194036+00:00",
+        "sort_order": 4,
+        "description": null
+      },
+      {
+        "id": 5,
+        "name": "Indochine",
+        "slug": "indochine",
+        "image_url": null,
+        "is_active": true,
+        "created_at": "2026-09-18T09:21:24.934946+00:00",
+        "sort_order": 5,
+        "description": null
+      },
+      {
+        "id": 6,
+        "name": "Luxury",
+        "slug": "luxury",
+        "image_url": null,
+        "is_active": true,
+        "created_at": "2026-09-18T09:21:44.692759+00:00",
+        "sort_order": 6,
+        "description": null
+      },
+      {
+        "id": 7,
+        "name": "Wabi-Sabi\n",
+        "slug": "wabi-sabi",
+        "image_url": null,
+        "is_active": true,
+        "created_at": "2026-09-18T09:22:01.5259+00:00",
+        "sort_order": 7,
+        "description": null
+      },
+      {
+        "id": 8,
+        "name": "Mid-century Modern\n",
+        "slug": "mid-century-modern",
+        "image_url": null,
+        "is_active": true,
+        "created_at": "2026-09-18T09:22:14.237422+00:00",
+        "sort_order": 8,
+        "description": null
+      },
+      {
+        "id": 9,
+        "name": "Contemporary\n",
+        "slug": "contemporary",
+        "image_url": null,
+        "is_active": true,
+        "created_at": "2026-09-18T09:22:27.450902+00:00",
+        "sort_order": 9,
+        "description": null
+      },
+      {
+        "id": 10,
+        "name": "Rustic\n",
+        "slug": "rustic",
+        "image_url": null,
+        "is_active": true,
+        "created_at": "2026-09-18T09:22:41.682367+00:00",
+        "sort_order": 10,
+        "description": null
+      }
+    ],
+    "products": [],
+    "categories": [
+      {
+        "id": 1,
+        "name": "Đèn",
+        "slug": "den",
+        "is_active": true,
+        "created_at": "2026-09-18T03:35:40.543151+00:00",
+        "sort_order": 1,
+        "description": "Đèn trang trí và chiếu sáng cho không gian sống"
+      }
+    ],
+    "user_roles": [
+      {
+        "role": "admin",
+        "user_id": "2d839442-94e4-4188-80e4-5d5e4cf294fd",
+        "created_at": "2026-09-18T13:03:25.246703+00:00"
+      }
+    ],
+    "product_tags": [],
+    "product_images": [],
+    "product_styles": []
+  },
+  "grants": [
+    {
+      "table": "categories",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "categories",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "categories",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "categories",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "categories",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "categories",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "categories",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "categories",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "categories",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "categories",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "categories",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "categories",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "categories",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "categories",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "categories",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "categories",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "categories",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "categories",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "categories",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "categories",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "categories",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "categories",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "categories",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "categories",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "categories",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "categories",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "categories",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "categories",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "product_images",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "product_images",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "product_images",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "product_images",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "product_images",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "product_images",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "product_images",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "product_images",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "product_images",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "product_images",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "product_images",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "product_images",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "product_images",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "product_images",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "product_images",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "product_images",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "product_images",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "product_images",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "product_images",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "product_images",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "product_images",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "product_images",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "product_images",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "product_images",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "product_images",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "product_images",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "product_images",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "product_images",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "product_styles",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "product_tags",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "products",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "products",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "products",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "products",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "products",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "products",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "products",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "products",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "products",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "products",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "products",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "products",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "products",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "products",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "products",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "products",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "products",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "products",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "products",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "products",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "products",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "products",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "products",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "products",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "products",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "products",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "products",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "products",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "styles",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "styles",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "styles",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "styles",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "styles",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "styles",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "styles",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "styles",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "styles",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "styles",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "styles",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "styles",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "styles",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "styles",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "styles",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "styles",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "styles",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "styles",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "styles",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "styles",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "styles",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "styles",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "styles",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "styles",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "styles",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "styles",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "styles",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "styles",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "tags",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "tags",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "tags",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "tags",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "tags",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "tags",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "tags",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "tags",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "tags",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "tags",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "tags",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "tags",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "tags",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "tags",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "tags",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "tags",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "tags",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "tags",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "tags",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "tags",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "tags",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "tags",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "tags",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "tags",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "tags",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "tags",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "tags",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "tags",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "user_roles",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "user_roles",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "user_roles",
+      "grantee": "anon",
+      "grantable": "NO",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "user_roles",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "user_roles",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "user_roles",
+      "grantee": "authenticated",
+      "grantable": "NO",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "user_roles",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "DELETE"
+    },
+    {
+      "table": "user_roles",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "INSERT"
+    },
+    {
+      "table": "user_roles",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "user_roles",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "SELECT"
+    },
+    {
+      "table": "user_roles",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "user_roles",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "TRUNCATE"
+    },
+    {
+      "table": "user_roles",
+      "grantee": "postgres",
+      "grantable": "YES",
+      "privilege": "UPDATE"
+    },
+    {
+      "table": "user_roles",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "REFERENCES"
+    },
+    {
+      "table": "user_roles",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "TRIGGER"
+    },
+    {
+      "table": "user_roles",
+      "grantee": "service_role",
+      "grantable": "NO",
+      "privilege": "TRUNCATE"
+    }
+  ],
+  "columns": [
+    {
+      "table": "categories",
+      "column": "id",
+      "default": null,
+      "ordinal": 1,
+      "identity": "YES",
+      "nullable": "NO",
+      "udt_name": "int8",
+      "data_type": "bigint",
+      "identity_generation": "BY DEFAULT"
+    },
+    {
+      "table": "categories",
+      "column": "created_at",
+      "default": "now()",
+      "ordinal": 2,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "timestamptz",
+      "data_type": "timestamp with time zone",
+      "identity_generation": null
+    },
+    {
+      "table": "categories",
+      "column": "name",
+      "default": null,
+      "ordinal": 3,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "text",
+      "data_type": "text",
+      "identity_generation": null
+    },
+    {
+      "table": "categories",
+      "column": "slug",
+      "default": null,
+      "ordinal": 4,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "text",
+      "data_type": "text",
+      "identity_generation": null
+    },
+    {
+      "table": "categories",
+      "column": "description",
+      "default": null,
+      "ordinal": 5,
+      "identity": "NO",
+      "nullable": "YES",
+      "udt_name": "text",
+      "data_type": "text",
+      "identity_generation": null
+    },
+    {
+      "table": "categories",
+      "column": "sort_order",
+      "default": "0",
+      "ordinal": 6,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "int4",
+      "data_type": "integer",
+      "identity_generation": null
+    },
+    {
+      "table": "categories",
+      "column": "is_active",
+      "default": "true",
+      "ordinal": 7,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "bool",
+      "data_type": "boolean",
+      "identity_generation": null
+    },
+    {
+      "table": "product_images",
+      "column": "id",
+      "default": null,
+      "ordinal": 1,
+      "identity": "YES",
+      "nullable": "NO",
+      "udt_name": "int8",
+      "data_type": "bigint",
+      "identity_generation": "BY DEFAULT"
+    },
+    {
+      "table": "product_images",
+      "column": "created_at",
+      "default": "now()",
+      "ordinal": 2,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "timestamptz",
+      "data_type": "timestamp with time zone",
+      "identity_generation": null
+    },
+    {
+      "table": "product_images",
+      "column": "product_id",
+      "default": null,
+      "ordinal": 3,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "int8",
+      "data_type": "bigint",
+      "identity_generation": null
+    },
+    {
+      "table": "product_images",
+      "column": "image_url",
+      "default": null,
+      "ordinal": 4,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "text",
+      "data_type": "text",
+      "identity_generation": null
+    },
+    {
+      "table": "product_images",
+      "column": "alt_text",
+      "default": null,
+      "ordinal": 5,
+      "identity": "NO",
+      "nullable": "YES",
+      "udt_name": "text",
+      "data_type": "text",
+      "identity_generation": null
+    },
+    {
+      "table": "product_images",
+      "column": "sort_order",
+      "default": "0",
+      "ordinal": 6,
+      "identity": "NO",
+      "nullable": "YES",
+      "udt_name": "int4",
+      "data_type": "integer",
+      "identity_generation": null
+    },
+    {
+      "table": "product_images",
+      "column": "is_primary",
+      "default": "false",
+      "ordinal": 7,
+      "identity": "NO",
+      "nullable": "YES",
+      "udt_name": "bool",
+      "data_type": "boolean",
+      "identity_generation": null
+    },
+    {
+      "table": "product_styles",
+      "column": "created_at",
+      "default": "now()",
+      "ordinal": 1,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "timestamptz",
+      "data_type": "timestamp with time zone",
+      "identity_generation": null
+    },
+    {
+      "table": "product_styles",
+      "column": "product_id",
+      "default": null,
+      "ordinal": 2,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "int8",
+      "data_type": "bigint",
+      "identity_generation": null
+    },
+    {
+      "table": "product_styles",
+      "column": "style_id",
+      "default": null,
+      "ordinal": 3,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "int8",
+      "data_type": "bigint",
+      "identity_generation": null
+    },
+    {
+      "table": "product_tags",
+      "column": "created_at",
+      "default": "now()",
+      "ordinal": 1,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "timestamptz",
+      "data_type": "timestamp with time zone",
+      "identity_generation": null
+    },
+    {
+      "table": "product_tags",
+      "column": "product_id",
+      "default": null,
+      "ordinal": 2,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "int8",
+      "data_type": "bigint",
+      "identity_generation": null
+    },
+    {
+      "table": "product_tags",
+      "column": "tag_id",
+      "default": null,
+      "ordinal": 3,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "int8",
+      "data_type": "bigint",
+      "identity_generation": null
+    },
+    {
+      "table": "products",
+      "column": "id",
+      "default": null,
+      "ordinal": 1,
+      "identity": "YES",
+      "nullable": "NO",
+      "udt_name": "int8",
+      "data_type": "bigint",
+      "identity_generation": "BY DEFAULT"
+    },
+    {
+      "table": "products",
+      "column": "created_at",
+      "default": "now()",
+      "ordinal": 2,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "timestamptz",
+      "data_type": "timestamp with time zone",
+      "identity_generation": null
+    },
+    {
+      "table": "products",
+      "column": "name",
+      "default": null,
+      "ordinal": 3,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "text",
+      "data_type": "text",
+      "identity_generation": null
+    },
+    {
+      "table": "products",
+      "column": "slug",
+      "default": null,
+      "ordinal": 4,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "text",
+      "data_type": "text",
+      "identity_generation": null
+    },
+    {
+      "table": "products",
+      "column": "category_id",
+      "default": null,
+      "ordinal": 5,
+      "identity": "NO",
+      "nullable": "YES",
+      "udt_name": "int8",
+      "data_type": "bigint",
+      "identity_generation": null
+    },
+    {
+      "table": "products",
+      "column": "description",
+      "default": null,
+      "ordinal": 6,
+      "identity": "NO",
+      "nullable": "YES",
+      "udt_name": "text",
+      "data_type": "text",
+      "identity_generation": null
+    },
+    {
+      "table": "products",
+      "column": "price",
+      "default": null,
+      "ordinal": 7,
+      "identity": "NO",
+      "nullable": "YES",
+      "udt_name": "numeric",
+      "data_type": "numeric",
+      "identity_generation": null
+    },
+    {
+      "table": "products",
+      "column": "affiliate_url",
+      "default": null,
+      "ordinal": 8,
+      "identity": "NO",
+      "nullable": "YES",
+      "udt_name": "text",
+      "data_type": "text",
+      "identity_generation": null
+    },
+    {
+      "table": "products",
+      "column": "image_url",
+      "default": null,
+      "ordinal": 9,
+      "identity": "NO",
+      "nullable": "YES",
+      "udt_name": "text",
+      "data_type": "text",
+      "identity_generation": null
+    },
+    {
+      "table": "products",
+      "column": "status",
+      "default": "'draft'::text",
+      "ordinal": 10,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "text",
+      "data_type": "text",
+      "identity_generation": null
+    },
+    {
+      "table": "products",
+      "column": "is_featured",
+      "default": "false",
+      "ordinal": 11,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "bool",
+      "data_type": "boolean",
+      "identity_generation": null
+    },
+    {
+      "table": "products",
+      "column": "created_by_ai",
+      "default": "false",
+      "ordinal": 12,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "bool",
+      "data_type": "boolean",
+      "identity_generation": null
+    },
+    {
+      "table": "styles",
+      "column": "id",
+      "default": null,
+      "ordinal": 1,
+      "identity": "YES",
+      "nullable": "NO",
+      "udt_name": "int8",
+      "data_type": "bigint",
+      "identity_generation": "BY DEFAULT"
+    },
+    {
+      "table": "styles",
+      "column": "created_at",
+      "default": "now()",
+      "ordinal": 2,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "timestamptz",
+      "data_type": "timestamp with time zone",
+      "identity_generation": null
+    },
+    {
+      "table": "styles",
+      "column": "name",
+      "default": null,
+      "ordinal": 3,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "text",
+      "data_type": "text",
+      "identity_generation": null
+    },
+    {
+      "table": "styles",
+      "column": "slug",
+      "default": null,
+      "ordinal": 4,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "text",
+      "data_type": "text",
+      "identity_generation": null
+    },
+    {
+      "table": "styles",
+      "column": "description",
+      "default": null,
+      "ordinal": 5,
+      "identity": "NO",
+      "nullable": "YES",
+      "udt_name": "text",
+      "data_type": "text",
+      "identity_generation": null
+    },
+    {
+      "table": "styles",
+      "column": "image_url",
+      "default": null,
+      "ordinal": 6,
+      "identity": "NO",
+      "nullable": "YES",
+      "udt_name": "text",
+      "data_type": "text",
+      "identity_generation": null
+    },
+    {
+      "table": "styles",
+      "column": "sort_order",
+      "default": "0",
+      "ordinal": 7,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "int4",
+      "data_type": "integer",
+      "identity_generation": null
+    },
+    {
+      "table": "styles",
+      "column": "is_active",
+      "default": "true",
+      "ordinal": 8,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "bool",
+      "data_type": "boolean",
+      "identity_generation": null
+    },
+    {
+      "table": "tags",
+      "column": "id",
+      "default": null,
+      "ordinal": 1,
+      "identity": "YES",
+      "nullable": "NO",
+      "udt_name": "int8",
+      "data_type": "bigint",
+      "identity_generation": "BY DEFAULT"
+    },
+    {
+      "table": "tags",
+      "column": "created_at",
+      "default": "now()",
+      "ordinal": 2,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "timestamptz",
+      "data_type": "timestamp with time zone",
+      "identity_generation": null
+    },
+    {
+      "table": "tags",
+      "column": "name",
+      "default": null,
+      "ordinal": 3,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "text",
+      "data_type": "text",
+      "identity_generation": null
+    },
+    {
+      "table": "tags",
+      "column": "slug",
+      "default": null,
+      "ordinal": 4,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "text",
+      "data_type": "text",
+      "identity_generation": null
+    },
+    {
+      "table": "tags",
+      "column": "description",
+      "default": null,
+      "ordinal": 5,
+      "identity": "NO",
+      "nullable": "YES",
+      "udt_name": "text",
+      "data_type": "text",
+      "identity_generation": null
+    },
+    {
+      "table": "tags",
+      "column": "is_active",
+      "default": "true",
+      "ordinal": 6,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "bool",
+      "data_type": "boolean",
+      "identity_generation": null
+    },
+    {
+      "table": "user_roles",
+      "column": "user_id",
+      "default": null,
+      "ordinal": 1,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "uuid",
+      "data_type": "uuid",
+      "identity_generation": null
+    },
+    {
+      "table": "user_roles",
+      "column": "role",
+      "default": "'user'::text",
+      "ordinal": 2,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "text",
+      "data_type": "text",
+      "identity_generation": null
+    },
+    {
+      "table": "user_roles",
+      "column": "created_at",
+      "default": "now()",
+      "ordinal": 3,
+      "identity": "NO",
+      "nullable": "NO",
+      "udt_name": "timestamptz",
+      "data_type": "timestamp with time zone",
+      "identity_generation": null
+    }
+  ],
+  "indexes": [
+    {
+      "name": "categories_pkey",
+      "table": "categories",
+      "definition": "CREATE UNIQUE INDEX categories_pkey ON public.categories USING btree (id)"
+    },
+    {
+      "name": "categories_slug_key",
+      "table": "categories",
+      "definition": "CREATE UNIQUE INDEX categories_slug_key ON public.categories USING btree (slug)"
+    },
+    {
+      "name": "product_images_pkey",
+      "table": "product_images",
+      "definition": "CREATE UNIQUE INDEX product_images_pkey ON public.product_images USING btree (id)"
+    },
+    {
+      "name": "product_styles_pkey",
+      "table": "product_styles",
+      "definition": "CREATE UNIQUE INDEX product_styles_pkey ON public.product_styles USING btree (product_id, style_id)"
+    },
+    {
+      "name": "product_tags_pkey",
+      "table": "product_tags",
+      "definition": "CREATE UNIQUE INDEX product_tags_pkey ON public.product_tags USING btree (product_id, tag_id)"
+    },
+    {
+      "name": "products_pkey",
+      "table": "products",
+      "definition": "CREATE UNIQUE INDEX products_pkey ON public.products USING btree (id)"
+    },
+    {
+      "name": "products_slug_key",
+      "table": "products",
+      "definition": "CREATE UNIQUE INDEX products_slug_key ON public.products USING btree (slug)"
+    },
+    {
+      "name": "styles_pkey",
+      "table": "styles",
+      "definition": "CREATE UNIQUE INDEX styles_pkey ON public.styles USING btree (id)"
+    },
+    {
+      "name": "styles_slug_key",
+      "table": "styles",
+      "definition": "CREATE UNIQUE INDEX styles_slug_key ON public.styles USING btree (slug)"
+    },
+    {
+      "name": "tags_name_key",
+      "table": "tags",
+      "definition": "CREATE UNIQUE INDEX tags_name_key ON public.tags USING btree (name)"
+    },
+    {
+      "name": "tags_pkey",
+      "table": "tags",
+      "definition": "CREATE UNIQUE INDEX tags_pkey ON public.tags USING btree (id)"
+    },
+    {
+      "name": "tags_slug_key",
+      "table": "tags",
+      "definition": "CREATE UNIQUE INDEX tags_slug_key ON public.tags USING btree (slug)"
+    },
+    {
+      "name": "user_roles_pkey",
+      "table": "user_roles",
+      "definition": "CREATE UNIQUE INDEX user_roles_pkey ON public.user_roles USING btree (user_id)"
+    }
+  ],
+  "database": "postgres",
+  "policies": [
+    {
+      "name": "Admin can delete categories",
+      "check": null,
+      "roles": [
+        "authenticated"
+      ],
+      "table": "categories",
+      "using": "is_admin()",
+      "command": "DELETE"
+    },
+    {
+      "name": "Admin can insert categories",
+      "check": "is_admin()",
+      "roles": [
+        "authenticated"
+      ],
+      "table": "categories",
+      "using": null,
+      "command": "INSERT"
+    },
+    {
+      "name": "Admin can update categories",
+      "check": "is_admin()",
+      "roles": [
+        "authenticated"
+      ],
+      "table": "categories",
+      "using": "is_admin()",
+      "command": "UPDATE"
+    },
+    {
+      "name": "Public can view active categories",
+      "check": null,
+      "roles": [
+        "public"
+      ],
+      "table": "categories",
+      "using": "(is_active = true)",
+      "command": "SELECT"
+    },
+    {
+      "name": "Admin can delete product images",
+      "check": null,
+      "roles": [
+        "authenticated"
+      ],
+      "table": "product_images",
+      "using": "is_admin()",
+      "command": "DELETE"
+    },
+    {
+      "name": "Admin can insert product images",
+      "check": "is_admin()",
+      "roles": [
+        "authenticated"
+      ],
+      "table": "product_images",
+      "using": null,
+      "command": "INSERT"
+    },
+    {
+      "name": "Admin can update product images",
+      "check": "is_admin()",
+      "roles": [
+        "authenticated"
+      ],
+      "table": "product_images",
+      "using": "is_admin()",
+      "command": "UPDATE"
+    },
+    {
+      "name": "Public can view images of published products",
+      "check": null,
+      "roles": [
+        "anon",
+        "authenticated"
+      ],
+      "table": "product_images",
+      "using": "(EXISTS ( SELECT 1\n   FROM products p\n  WHERE ((p.id = product_images.product_id) AND (p.status = 'published'::text))))",
+      "command": "SELECT"
+    },
+    {
+      "name": "Admin can delete product styles",
+      "check": null,
+      "roles": [
+        "authenticated"
+      ],
+      "table": "product_styles",
+      "using": "is_admin()",
+      "command": "DELETE"
+    },
+    {
+      "name": "Admin can insert product styles",
+      "check": "is_admin()",
+      "roles": [
+        "authenticated"
+      ],
+      "table": "product_styles",
+      "using": null,
+      "command": "INSERT"
+    },
+    {
+      "name": "Admin can update product styles",
+      "check": "is_admin()",
+      "roles": [
+        "authenticated"
+      ],
+      "table": "product_styles",
+      "using": "is_admin()",
+      "command": "UPDATE"
+    },
+    {
+      "name": "Public can view styles of published products",
+      "check": null,
+      "roles": [
+        "anon",
+        "authenticated"
+      ],
+      "table": "product_styles",
+      "using": "(EXISTS ( SELECT 1\n   FROM (products p\n     JOIN styles s ON ((s.id = product_styles.style_id)))\n  WHERE ((p.id = product_styles.product_id) AND (p.status = 'published'::text) AND (s.is_active = true))))",
+      "command": "SELECT"
+    },
+    {
+      "name": "Admin can delete product tags",
+      "check": null,
+      "roles": [
+        "authenticated"
+      ],
+      "table": "product_tags",
+      "using": "is_admin()",
+      "command": "DELETE"
+    },
+    {
+      "name": "Admin can insert product tags",
+      "check": "is_admin()",
+      "roles": [
+        "authenticated"
+      ],
+      "table": "product_tags",
+      "using": null,
+      "command": "INSERT"
+    },
+    {
+      "name": "Admin can update product tags",
+      "check": "is_admin()",
+      "roles": [
+        "authenticated"
+      ],
+      "table": "product_tags",
+      "using": "is_admin()",
+      "command": "UPDATE"
+    },
+    {
+      "name": "Public can view tags of published products",
+      "check": null,
+      "roles": [
+        "anon",
+        "authenticated"
+      ],
+      "table": "product_tags",
+      "using": "(EXISTS ( SELECT 1\n   FROM (products p\n     JOIN tags t ON ((t.id = product_tags.tag_id)))\n  WHERE ((p.id = product_tags.product_id) AND (p.status = 'published'::text) AND (t.is_active = true))))",
+      "command": "SELECT"
+    },
+    {
+      "name": "Admin can delete products",
+      "check": null,
+      "roles": [
+        "authenticated"
+      ],
+      "table": "products",
+      "using": "is_admin()",
+      "command": "DELETE"
+    },
+    {
+      "name": "Admin can insert products",
+      "check": "is_admin()",
+      "roles": [
+        "authenticated"
+      ],
+      "table": "products",
+      "using": null,
+      "command": "INSERT"
+    },
+    {
+      "name": "Admin can update products",
+      "check": "is_admin()",
+      "roles": [
+        "authenticated"
+      ],
+      "table": "products",
+      "using": "is_admin()",
+      "command": "UPDATE"
+    },
+    {
+      "name": "Public can view published products",
+      "check": null,
+      "roles": [
+        "public"
+      ],
+      "table": "products",
+      "using": "(status = 'published'::text)",
+      "command": "SELECT"
+    },
+    {
+      "name": "Admin can delete styles",
+      "check": null,
+      "roles": [
+        "authenticated"
+      ],
+      "table": "styles",
+      "using": "is_admin()",
+      "command": "DELETE"
+    },
+    {
+      "name": "Admin can insert styles",
+      "check": "is_admin()",
+      "roles": [
+        "authenticated"
+      ],
+      "table": "styles",
+      "using": null,
+      "command": "INSERT"
+    },
+    {
+      "name": "Admin can update styles",
+      "check": "is_admin()",
+      "roles": [
+        "authenticated"
+      ],
+      "table": "styles",
+      "using": "is_admin()",
+      "command": "UPDATE"
+    },
+    {
+      "name": "Public can view active styles",
+      "check": null,
+      "roles": [
+        "anon",
+        "authenticated"
+      ],
+      "table": "styles",
+      "using": "(is_active = true)",
+      "command": "SELECT"
+    },
+    {
+      "name": "Admin can delete tags",
+      "check": null,
+      "roles": [
+        "authenticated"
+      ],
+      "table": "tags",
+      "using": "is_admin()",
+      "command": "DELETE"
+    },
+    {
+      "name": "Admin can insert tags",
+      "check": "is_admin()",
+      "roles": [
+        "authenticated"
+      ],
+      "table": "tags",
+      "using": null,
+      "command": "INSERT"
+    },
+    {
+      "name": "Admin can update tags",
+      "check": "is_admin()",
+      "roles": [
+        "authenticated"
+      ],
+      "table": "tags",
+      "using": "is_admin()",
+      "command": "UPDATE"
+    },
+    {
+      "name": "Public can view active tags",
+      "check": null,
+      "roles": [
+        "anon",
+        "authenticated"
+      ],
+      "table": "tags",
+      "using": "(is_active = true)",
+      "command": "SELECT"
+    },
+    {
+      "name": "Users can view their own role",
+      "check": null,
+      "roles": [
+        "authenticated"
+      ],
+      "table": "user_roles",
+      "using": "(auth.uid() = user_id)",
+      "command": "SELECT"
+    }
+  ],
+  "functions": [
+    {
+      "name": "is_admin",
+      "config": [
+        "search_path=public, auth"
+      ],
+      "definition": "CREATE OR REPLACE FUNCTION public.is_admin()\n RETURNS boolean\n LANGUAGE sql\n STABLE SECURITY DEFINER\n SET search_path TO 'public', 'auth'\nAS $function$\n  select exists (\n    select 1\n    from public.user_roles\n    where user_id = auth.uid()\n      and role = 'admin'\n  );\n$function$\n",
+      "security_definer": true
+    }
+  ],
+  "relations": [
+    {
+      "table": "categories",
+      "rls_forced": false,
+      "rls_enabled": true
+    },
+    {
+      "table": "product_images",
+      "rls_forced": false,
+      "rls_enabled": true
+    },
+    {
+      "table": "product_styles",
+      "rls_forced": false,
+      "rls_enabled": true
+    },
+    {
+      "table": "product_tags",
+      "rls_forced": false,
+      "rls_enabled": true
+    },
+    {
+      "table": "products",
+      "rls_forced": false,
+      "rls_enabled": true
+    },
+    {
+      "table": "styles",
+      "rls_forced": false,
+      "rls_enabled": true
+    },
+    {
+      "table": "tags",
+      "rls_forced": false,
+      "rls_enabled": true
+    },
+    {
+      "table": "user_roles",
+      "rls_forced": false,
+      "rls_enabled": true
+    }
+  ],
+  "sequences": [
+    {
+      "name": "public.categories_id_seq",
+      "last_value": 1,
+      "start_value": 1,
+      "increment_by": 1
+    },
+    {
+      "name": "public.product_images_id_seq",
+      "last_value": null,
+      "start_value": 1,
+      "increment_by": 1
+    },
+    {
+      "name": "public.products_id_seq",
+      "last_value": null,
+      "start_value": 1,
+      "increment_by": 1
+    },
+    {
+      "name": "public.styles_id_seq",
+      "last_value": 10,
+      "start_value": 1,
+      "increment_by": 1
+    },
+    {
+      "name": "public.tags_id_seq",
+      "last_value": null,
+      "start_value": 1,
+      "increment_by": 1
+    }
+  ],
+  "captured_at": "2026-10-08T14:54:40.355184+00:00",
+  "constraints": [
+    {
+      "name": "categories_pkey",
+      "table": "categories",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "name": "categories_slug_key",
+      "table": "categories",
+      "definition": "UNIQUE (slug)"
+    },
+    {
+      "name": "product_images_pkey",
+      "table": "product_images",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "name": "product_images_product_id_fkey",
+      "table": "product_images",
+      "definition": "FOREIGN KEY (product_id) REFERENCES products(id) ON UPDATE CASCADE ON DELETE CASCADE"
+    },
+    {
+      "name": "product_styles_pkey",
+      "table": "product_styles",
+      "definition": "PRIMARY KEY (product_id, style_id)"
+    },
+    {
+      "name": "product_styles_product_id_fkey",
+      "table": "product_styles",
+      "definition": "FOREIGN KEY (product_id) REFERENCES products(id) ON UPDATE CASCADE ON DELETE CASCADE"
+    },
+    {
+      "name": "product_styles_style_id_fkey",
+      "table": "product_styles",
+      "definition": "FOREIGN KEY (style_id) REFERENCES styles(id) ON UPDATE CASCADE ON DELETE CASCADE"
+    },
+    {
+      "name": "product_tags_pkey",
+      "table": "product_tags",
+      "definition": "PRIMARY KEY (product_id, tag_id)"
+    },
+    {
+      "name": "product_tags_product_id_fkey",
+      "table": "product_tags",
+      "definition": "FOREIGN KEY (product_id) REFERENCES products(id) ON UPDATE CASCADE ON DELETE CASCADE"
+    },
+    {
+      "name": "product_tags_tag_id_fkey",
+      "table": "product_tags",
+      "definition": "FOREIGN KEY (tag_id) REFERENCES tags(id) ON UPDATE CASCADE ON DELETE CASCADE"
+    },
+    {
+      "name": "products_category_id_fkey",
+      "table": "products",
+      "definition": "FOREIGN KEY (category_id) REFERENCES categories(id) ON UPDATE CASCADE ON DELETE SET NULL"
+    },
+    {
+      "name": "products_pkey",
+      "table": "products",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "name": "products_slug_key",
+      "table": "products",
+      "definition": "UNIQUE (slug)"
+    },
+    {
+      "name": "styles_pkey",
+      "table": "styles",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "name": "styles_slug_key",
+      "table": "styles",
+      "definition": "UNIQUE (slug)"
+    },
+    {
+      "name": "tags_name_key",
+      "table": "tags",
+      "definition": "UNIQUE (name)"
+    },
+    {
+      "name": "tags_pkey",
+      "table": "tags",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "name": "tags_slug_key",
+      "table": "tags",
+      "definition": "UNIQUE (slug)"
+    },
+    {
+      "name": "user_roles_pkey",
+      "table": "user_roles",
+      "definition": "PRIMARY KEY (user_id)"
+    },
+    {
+      "name": "user_roles_role_check",
+      "table": "user_roles",
+      "definition": "CHECK ((role = ANY (ARRAY['admin'::text, 'user'::text])))"
+    },
+    {
+      "name": "user_roles_user_id_fkey",
+      "table": "user_roles",
+      "definition": "FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE"
+    }
+  ],
+  "project_ref": "sbxjugytzwqchdysimxx",
+  "server_version": "PostgreSQL 17.6 on aarch64-unknown-linux-gnu, compiled by gcc (GCC) 15.2.0, 64-bit"
+}

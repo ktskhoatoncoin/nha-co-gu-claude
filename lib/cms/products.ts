@@ -131,17 +131,21 @@ function toRow(input: ProductWriteInput) {
   };
 }
 
-export async function getCmsProducts(): Promise<Product[]> {
+export async function getCmsProducts(options?: { includeUnpublished?: boolean }): Promise<Product[]> {
   if (!hasSupabaseAdminConfig()) {
     return [];
   }
 
   const supabase = createSupabaseAdminClient();
 
-  const { data, error } = await supabase
+  let query = supabase
     .from("products")
     .select("*")
     .order("created_at", { ascending: false });
+
+  if (!options?.includeUnpublished) query = query.eq("status", "published");
+
+  const { data, error } = await query;
 
   if (error) {
     throw new Error(error.message);

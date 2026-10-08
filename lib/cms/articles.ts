@@ -88,12 +88,21 @@ export async function getCmsArticles(options?: { includeUnpublished?: boolean })
   if (!options?.includeUnpublished) query = query.eq("status", "published");
   const { data, error } = await query;
   if (error) throw new Error(error.message);
-  if (!data?.length && seedArticles.length) {
-    const seededRows = seedArticles.map((article) => toRow(toInput(article), article.id));
-    const seeded = await createSupabaseAdminClient().from("articles").insert(seededRows).select("*");
-    if (seeded.error) throw new Error(seeded.error.message);
-    return (seeded.data ?? []).map((row) => fromRow(row as Record<string, unknown>));
-  }
+  return (data ?? []).map((row) => fromRow(row as Record<string, unknown>));
+}
+
+/** Explicit one-time seed operation. Never call from a page or GET handler. */
+export async function seedCmsArticles() {
+  if (!hasSupabaseAdminConfig()) throw new Error("Supabase admin chưa được cấu hình.");
+
+  const supabase = createSupabaseAdminClient();
+  const { data: existing, error: lookupError } = await supabase.from("articles").select("id").limit(1);
+  if (lookupError) throw new Error(lookupError.message);
+  if (existing?.length) throw new Error("Chỉ được nhập seed bài viết khi bảng articles đang rỗng.");
+
+  const rows = seedArticles.map((article) => toRow(toInput(article), article.id));
+  const { data, error } = await supabase.from("articles").insert(rows).select("*");
+  if (error) throw new Error(error.message);
   return (data ?? []).map((row) => fromRow(row as Record<string, unknown>));
 }
 
