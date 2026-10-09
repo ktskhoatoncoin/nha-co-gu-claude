@@ -18,6 +18,28 @@ export interface ArticleWriteInput {
   status: ArticleStatus;
 }
 
+export const REQUIRED_ARTICLE_HASHTAGS = [
+  "#ktskhoa365",
+  "#bandonghanh365d",
+  "#nhacogu365",
+  "#maccogu365",
+  "#depcogu365",
+] as const;
+
+/** Append missing required hashtags without changing existing article blocks. */
+export function ensureRequiredArticleHashtags(content: Article["content"]): Article["content"] {
+  const text = content
+    .map((block) => block.type === "list" ? block.items.join("\n") : block.text)
+    .join("\n");
+  const missing = REQUIRED_ARTICLE_HASHTAGS.filter((hashtag) => !text.includes(hashtag));
+  if (missing.length === 0) return content;
+
+  return [
+    ...content,
+    { type: "paragraph", text: missing.join(" ") },
+  ];
+}
+
 function slugify(value: string) {
   return value
     .normalize("NFD")
@@ -40,7 +62,7 @@ function fromRow(row: Record<string, unknown>): Article & { status: ArticleStatu
     date: String(row.published_at ?? row.created_at ?? new Date().toISOString()),
     readingTimeMinutes: Number(row.reading_time_minutes ?? 1),
     category: String(row.category ?? "Góc kiến trúc sư"),
-    content: (row.content ?? []) as Article["content"],
+    content: ensureRequiredArticleHashtags((row.content ?? []) as Article["content"]),
     relatedProductSlugs: (row.related_product_slugs ?? []) as string[],
     hasAffiliateLinks: Boolean(row.has_affiliate_links),
     status: (row.status ?? "published") as ArticleStatus,
@@ -59,7 +81,7 @@ function toRow(input: ArticleWriteInput, id?: string) {
     published_at: input.status === "published" ? now : null,
     reading_time_minutes: input.readingTimeMinutes,
     category: input.category,
-    content: input.content,
+    content: ensureRequiredArticleHashtags(input.content),
     related_product_slugs: input.relatedProductSlugs,
     has_affiliate_links: input.hasAffiliateLinks,
     status: input.status,
@@ -83,7 +105,13 @@ function toInput(article: Article): ArticleWriteInput {
 }
 
 export async function getCmsArticles(options?: { includeUnpublished?: boolean }) {
-  if (!hasSupabaseAdminConfig()) return seedArticles.map((article) => ({ ...article, status: "published" as const }));
+  if (!hasSupabaseAdminConfig()) {
+    return seedArticles.map((article) => ({
+      ...article,
+      content: ensureRequiredArticleHashtags(article.content),
+      status: "published" as const,
+    }));
+  }
   let query = createSupabaseAdminClient().from("articles").select("*").order("published_at", { ascending: false, nullsFirst: false });
   if (!options?.includeUnpublished) query = query.eq("status", "published");
   const { data, error } = await query;
@@ -107,7 +135,10 @@ export async function seedCmsArticles() {
 }
 
 export async function getCmsArticle(slug: string, includeUnpublished = false) {
-  if (!hasSupabaseAdminConfig()) return seedArticles.find((article) => article.slug === slug);
+  if (!hasSupabaseAdminConfig()) {
+    const article = seedArticles.find((candidate) => candidate.slug === slug);
+    return article ? { ...article, content: ensureRequiredArticleHashtags(article.content) } : undefined;
+  }
   let query = createSupabaseAdminClient().from("articles").select("*").eq("slug", slug);
   if (!includeUnpublished) query = query.eq("status", "published");
   const { data, error } = await query.maybeSingle();

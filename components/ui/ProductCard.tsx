@@ -72,12 +72,14 @@ export default function ProductCard({ product, hiddenBadge }: { product: Product
           <ScorePill score={product.ourScore} />
         </div>
 
-        <div className="flex items-center gap-1 text-xs text-stone pt-0.5">
-          <Star className="size-3.5 fill-wood text-wood" />
-          <span>{product.rating.toFixed(1)}</span>
-          <span aria-hidden>·</span>
-          <span>{product.reviewCount} đánh giá</span>
-        </div>
+        {product.rating > 0 && product.reviewCount > 0 && (
+          <div className="flex items-center gap-1 text-xs text-stone pt-0.5">
+            <Star className="size-3.5 fill-wood text-wood" />
+            <span>{product.rating.toFixed(1)}</span>
+            <span aria-hidden>·</span>
+            <span>{product.reviewCount} đánh giá</span>
+          </div>
+        )}
 
         <div className="mt-auto flex items-center gap-2 pt-2">
           <Link

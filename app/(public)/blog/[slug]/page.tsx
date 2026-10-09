@@ -7,8 +7,8 @@ import { getPublicProducts } from "@/lib/cms/products";
 import { timeAgoOrDate } from "@/lib/format";
 import ArticleBody from "@/components/ui/ArticleBody";
 import ArticleViewTracker from "@/components/ui/ArticleViewTracker";
-import ProductGrid from "@/components/ui/ProductGrid";
 import ArticleCard from "@/components/ui/ArticleCard";
+import RelatedArticleProducts, { resolveRelatedArticleProducts } from "@/components/article/RelatedArticleProducts";
 
 export const dynamic = "force-dynamic";
 
@@ -32,7 +32,8 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
   const article = await getCmsArticle(slug);
   if (!article) notFound();
 
-  const relatedProducts = (await getPublicProducts()).filter((p) => article.relatedProductSlugs.includes(p.slug));
+  const publicProducts = await getPublicProducts();
+  const relatedProducts = resolveRelatedArticleProducts(publicProducts, article.relatedProductSlugs);
   const moreArticles = (await getCmsArticles()).filter((a) => a.id !== article.id && a.category === article.category).slice(0, 3);
 
   return (
@@ -59,19 +60,14 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
         <ArticleBody blocks={article.content} />
       </div>
 
-      {article.hasAffiliateLinks && (
+      {article.hasAffiliateLinks && relatedProducts.length > 0 && (
         <p className="mt-10 text-xs text-stone border-t border-linen pt-4">
           Bài viết này có chứa liên kết tiếp thị liên kết tới các sản phẩm được nhắc đến. Nhà Có Gu có thể nhận hoa
           hồng nếu bạn mua hàng qua các liên kết này, không làm tăng giá bạn phải trả.
         </p>
       )}
 
-      {relatedProducts.length > 0 && (
-        <section className="mt-14">
-          <h2 className="font-display text-xl text-ink mb-6">Sản phẩm được nhắc đến</h2>
-          <ProductGrid products={relatedProducts} columns={3} />
-        </section>
-      )}
+      <RelatedArticleProducts products={publicProducts} slugs={article.relatedProductSlugs} />
 
       {moreArticles.length > 0 && (
         <section className="mt-16 border-t border-linen pt-10">
