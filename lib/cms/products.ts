@@ -1,6 +1,7 @@
 import { Product, ScoreBreakdown } from "@/lib/types";
 import { hasSupabaseAdminConfig } from "@/lib/supabase/config";
 import { createSupabaseAdminClient } from "@/lib/supabase/server";
+import { curatedDemoProducts } from "@/lib/data/curated-demo-products";
 
 export interface ProductWriteInput {
   name: string;
@@ -156,6 +157,14 @@ export async function getCmsProducts(options?: { includeUnpublished?: boolean })
   );
 }
 
+/** Public read path with a safe demo fallback for an empty published catalogue. */
+export async function getPublicProducts(): Promise<Product[]> {
+  if (!hasSupabaseAdminConfig()) return [];
+
+  const products = await getCmsProducts();
+  return products.length > 0 ? products : curatedDemoProducts;
+}
+
 export async function getCmsProduct(
   id: string
 ): Promise<Product | undefined> {
@@ -186,6 +195,10 @@ export async function getCmsProductBySlug(
   return (await getCmsProducts()).find(
     (product) => product.slug === slug && product.isActive
   );
+}
+
+export async function getPublicProductBySlug(slug: string): Promise<Product | undefined> {
+  return (await getPublicProducts()).find((product) => product.slug === slug && product.isActive);
 }
 
 export async function createCmsProduct(

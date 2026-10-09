@@ -112,6 +112,16 @@ body {
 
   /* Tabular figures keep score and price columns from shifting. */
   .ncg-figure { font-variant-numeric: tabular-nums; }
+
+  /* ProductCard-only typography: preserve the global editorial display scale
+     while keeping Vietnamese product metadata readable and stable. */
+  .ncg-product-card {
+    font-family: "Be Vietnam Pro", Inter, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif;
+    font-feature-settings: normal;
+    font-kerning: normal;
+  }
+  .ncg-product-card .ncg-eyebrow { letter-spacing: 0.06em; }
+  .ncg-product-card .ncg-h3 { font-family: inherit; letter-spacing: 0; }
 }
 
 ::selection { background: var(--color-wood); color: var(--color-paper); }

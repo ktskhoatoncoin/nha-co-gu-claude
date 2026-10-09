@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { categories } from "@/lib/data/categories";
-import { getCmsProducts } from "@/lib/cms/products";
+import { getPublicProducts } from "@/lib/cms/products";
 import { getCmsArticles } from "@/lib/cms/articles";
 import { OTHER_CATEGORY_ID, OTHER_CATEGORY_NAME } from "@/lib/cms/constants";
 import ProductGrid from "@/components/ui/ProductGrid";
@@ -30,7 +30,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
   const category = categories.find((c) => c.slug === slug) ?? (slug === "san-pham-khac" ? { id: OTHER_CATEGORY_ID, slug, name: OTHER_CATEGORY_NAME, description: "Những sản phẩm hữu ích khác được Nhà Có Gu tuyển chọn.", heroImage: "https://picsum.photos/seed/nha-co-gu-other/1200/800" } : undefined);
   if (!category) notFound();
 
-  const products = (await getCmsProducts()).filter((p) => p.categoryId === category.id);
+  const products = (await getPublicProducts()).filter((p) => p.categoryId === category.id);
   const featured = products.filter((p) => p.isFeatured).slice(0, 4);
   const rest = products.filter((p) => !p.isFeatured);
   const relatedArticles = (await getCmsArticles())

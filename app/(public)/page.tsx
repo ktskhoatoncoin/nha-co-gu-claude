@@ -8,12 +8,12 @@ import ArticleCard from "@/components/ui/ArticleCard";
 import { rooms } from "@/lib/data/rooms";
 import { styles } from "@/lib/data/styles";
 import { getCmsArticles } from "@/lib/cms/articles";
-import { getCmsProducts } from "@/lib/cms/products";
+import { getPublicProducts } from "@/lib/cms/products";
 
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  const [products, articles] = await Promise.all([getCmsProducts(), getCmsArticles()]);
+  const [products, articles] = await Promise.all([getPublicProducts(), getCmsArticles()]);
   const featured = products.filter((p) => p.isFeatured).slice(0, 8);
   const under500k = products.filter((p) => p.price <= 500000).slice(0, 8);
   const latestArticles = [...articles].sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, 3);
@@ -62,7 +62,7 @@ export default async function HomePage() {
             subtitle="Những sản phẩm chúng tôi tin là đáng mua nhất ở thời điểm hiện tại."
             cta={{ href: "/products?sort=nha-co-gu-chon", label: "Xem tất cả" }}
           />
-          <ProductGrid products={featured} />
+          <ProductGrid products={featured} hiddenBadge="nha_co_gu_chon" />
         </div>
       </section>
 
@@ -72,7 +72,7 @@ export default async function HomePage() {
           subtitle="Những món nhỏ nhưng có thể thay đổi cảm giác của cả căn phòng."
           cta={{ href: "/budget/under-300k", label: "Xem theo ngân sách" }}
         />
-        <ProductGrid products={under500k} />
+        <ProductGrid products={under500k} hiddenBadge="duoi_500k" />
       </section>
 
       <section className="mx-auto max-w-(--container-content) px-4 sm:px-6 lg:px-8 py-16">

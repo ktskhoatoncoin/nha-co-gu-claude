@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { rooms } from "@/lib/data/rooms";
 import { styles } from "@/lib/data/styles";
-import { getCmsProducts } from "@/lib/cms/products";
+import { getPublicProducts } from "@/lib/cms/products";
 import { getCmsArticles } from "@/lib/cms/articles";
 import ProductGrid from "@/components/ui/ProductGrid";
 import ArticleCard from "@/components/ui/ArticleCard";
@@ -28,7 +28,7 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
   const room = rooms.find((r) => r.slug === slug);
   if (!room) notFound();
 
-  const products = (await getCmsProducts()).filter((p) => p.roomIds.includes(room.id));
+  const products = (await getPublicProducts()).filter((p) => p.roomIds.includes(room.id));
   const relatedArticles = (await getCmsArticles())
     .filter((a) => a.relatedProductSlugs.some((s) => products.some((p) => p.slug === s)))
     .slice(0, 3);

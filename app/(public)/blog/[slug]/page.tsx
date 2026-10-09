@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCmsArticles, getCmsArticle } from "@/lib/cms/articles";
-import { getCmsProducts } from "@/lib/cms/products";
+import { getPublicProducts } from "@/lib/cms/products";
 import { timeAgoOrDate } from "@/lib/format";
 import ArticleBody from "@/components/ui/ArticleBody";
 import ArticleViewTracker from "@/components/ui/ArticleViewTracker";
@@ -32,7 +32,7 @@ export default async function ArticleDetailPage({ params }: { params: Promise<{ 
   const article = await getCmsArticle(slug);
   if (!article) notFound();
 
-  const relatedProducts = (await getCmsProducts()).filter((p) => article.relatedProductSlugs.includes(p.slug));
+  const relatedProducts = (await getPublicProducts()).filter((p) => article.relatedProductSlugs.includes(p.slug));
   const moreArticles = (await getCmsArticles()).filter((a) => a.id !== article.id && a.category === article.category).slice(0, 3);
 
   return (

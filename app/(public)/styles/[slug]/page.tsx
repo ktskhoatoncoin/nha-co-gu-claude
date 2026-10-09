@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { styles } from "@/lib/data/styles";
-import { getCmsProducts } from "@/lib/cms/products";
+import { getPublicProducts } from "@/lib/cms/products";
 import ProductGrid from "@/components/ui/ProductGrid";
 import SectionHeading from "@/components/ui/SectionHeading";
 
@@ -24,7 +24,7 @@ export default async function StylePage({ params }: { params: Promise<{ slug: st
   const style = styles.find((s) => s.slug === slug);
   if (!style) notFound();
 
-  const products = (await getCmsProducts()).filter((p) => p.styleIds.includes(style.id));
+  const products = (await getPublicProducts()).filter((p) => p.styleIds.includes(style.id));
 
   return (
     <div>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { budgetTiers } from "@/lib/data/styles";
-import { getCmsProducts } from "@/lib/cms/products";
+import { getPublicProducts } from "@/lib/cms/products";
 import { formatVND } from "@/lib/format";
 import ProductGrid from "@/components/ui/ProductGrid";
 
@@ -23,7 +23,7 @@ export default async function BudgetPage({ params }: { params: Promise<{ slug: s
   const tier = budgetTiers.find((b) => b.slug === slug);
   if (!tier) notFound();
 
-  const products = (await getCmsProducts())
+  const products = (await getPublicProducts())
     .filter((p) => p.price >= tier.min && (tier.max === null || p.price < tier.max))
     .sort((a, b) => b.ourScore - a.ourScore);
 

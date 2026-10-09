@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import ProductsExplorer from "@/components/product/ProductsExplorer";
-import { getCmsProducts } from "@/lib/cms/products";
+import { getPublicProducts } from "@/lib/cms/products";
 
 export const dynamic = "force-dynamic";
 
@@ -10,7 +10,7 @@ export const metadata = {
 };
 
 export default async function ProductsPage() {
-  const products = await getCmsProducts();
+  const products = await getPublicProducts();
   return (
     <div className="mx-auto max-w-(--container-content) px-4 sm:px-6 lg:px-8 py-10">
       <h1 className="font-display text-3xl text-ink mb-2">Tất cả sản phẩm</h1>

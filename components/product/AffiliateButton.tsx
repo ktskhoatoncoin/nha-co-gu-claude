@@ -6,6 +6,16 @@ import { platformLabels } from "@/lib/format";
 import { trackAffiliateClick, trackOutboundClick } from "@/lib/analytics";
 
 export default function AffiliateButton({ product, page }: { product: Product; page: string }) {
+  const hasVerifiedDestination = /^https?:\/\/(?!example\.com(?:\/|$))/i.test(product.affiliateUrl);
+
+  if (!hasVerifiedDestination) {
+    return (
+      <p className="rounded-2xl border border-linen bg-ivory px-4 py-3 text-sm text-stone">
+        Liên kết mua hàng đang được cập nhật. Đây là sản phẩm demo để tham khảo.
+      </p>
+    );
+  }
+
   function handleClick() {
     trackAffiliateClick({ productId: product.id, platform: product.platform, page });
     trackOutboundClick(product.affiliateUrl, "product_detail");

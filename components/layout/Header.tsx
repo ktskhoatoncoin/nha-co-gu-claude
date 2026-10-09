@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, Search, X, Heart, Scale } from "lucide-react";
@@ -21,8 +22,15 @@ export default function Header() {
     <header className="sticky top-0 z-40 bg-paper/95 backdrop-blur border-b border-linen">
       <div className="mx-auto max-w-(--container-content) px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between gap-4">
-          <Link href="/" className="shrink-0" aria-label="Về trang chủ Nhà Có Gu">
-            <span className="ncg-h2 text-xl tracking-tight">Nhà Có Gu</span>
+          <Link href="/" className="flex shrink-0 items-center" aria-label="Về trang chủ Nhà Có Gu365">
+            <Image
+              src="/images/brand/logo-nhacogu365.png"
+              alt="Nhà Có Gu 365"
+              width={200}
+              height={67}
+              className="h-auto w-auto max-h-[50px] max-w-[min(200px,42vw)] object-contain"
+              priority
+            />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-6" aria-label="Điều hướng chính">

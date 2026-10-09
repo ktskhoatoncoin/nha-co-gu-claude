@@ -67,7 +67,10 @@ export default function Footer() {
             Một số liên kết trên Nhà Có Gu có thể là liên kết tiếp thị liên kết (affiliate). Khi bạn mua hàng
             qua liên kết này, chúng tôi có thể nhận được hoa hồng mà không làm tăng giá bạn phải trả.
           </p>
-          <p className="text-xs text-paper/40">© {new Date().getFullYear()} Nhà Có Gu. Dữ liệu sản phẩm trong bản demo là dữ liệu mẫu.</p>
+          <div className="text-xs leading-relaxed text-paper/40 sm:text-right">
+            <p>© {new Date().getFullYear()} Nhà Có Gu. Dữ liệu sản phẩm trong bản demo là dữ liệu mẫu.</p>
+            <p>nhacogu365 được thiết kế &amp; phát triển bởi #ktskhoa365.</p>
+          </div>
         </div>
       </div>
     </footer>

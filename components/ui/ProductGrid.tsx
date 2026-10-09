@@ -1,7 +1,15 @@
-import { Product } from "@/lib/types";
+import { Badge, Product } from "@/lib/types";
 import ProductCard from "@/components/ui/ProductCard";
 
-export default function ProductGrid({ products, columns = 4 }: { products: Product[]; columns?: 3 | 4 }) {
+export default function ProductGrid({
+  products,
+  columns = 4,
+  hiddenBadge,
+}: {
+  products: Product[];
+  columns?: 3 | 4;
+  hiddenBadge?: Badge;
+}) {
   if (products.length === 0) {
     return (
       <div className="rounded-md border border-dashed border-linen py-16 text-center">
@@ -16,7 +24,7 @@ export default function ProductGrid({ products, columns = 4 }: { products: Produ
       }`}
     >
       {products.map((p) => (
-        <ProductCard key={p.id} product={p} />
+        <ProductCard key={p.id} product={p} hiddenBadge={hiddenBadge} />
       ))}
     </div>
   );

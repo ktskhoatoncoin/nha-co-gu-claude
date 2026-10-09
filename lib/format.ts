@@ -8,6 +8,16 @@ export function formatVND(amount: number) {
   }).format(amount);
 }
 
+/** Returns an original price only when it represents a real discount. */
+export function getDisplayOriginalPrice(
+  price: number,
+  originalPrice: number | null | undefined
+): number | null {
+  if (!Number.isFinite(price) || price <= 0) return null;
+  if (originalPrice == null || !Number.isFinite(originalPrice) || originalPrice <= price) return null;
+  return originalPrice;
+}
+
 export function formatCount(n: number) {
   if (n >= 1000) return `${(n / 1000).toFixed(n % 1000 === 0 ? 0 : 1)}k`;
   return String(n);
